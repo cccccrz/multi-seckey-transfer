@@ -167,7 +167,8 @@ int ServerOperation::secKeyAgree(RequestMsg* reqMsg, char** outData, int& dataLe
 	return 0;
 }
 
-// 秘钥校验
+// 秘钥校验 -- 根据客户端发来的秘钥ID 和 消息认证码 校验秘钥 ，回复校验结果
+//消息认证码：HMAC [@serverid+clientid@ ,seckey]
 int ServerOperation::secKeyCheck(RequestMsg* reqMsg, char** outData, int& dataLen)
 {
 	int keyID = atoi(reqMsg->r1);
@@ -224,7 +225,7 @@ int ServerOperation::secKeyCheck(RequestMsg* reqMsg, char** outData, int& dataLe
 	return 0;
 }
 
-// 秘钥注销
+// 秘钥注销 -- 根据客户端ID和服务端ID 注销秘钥信息，回复注销结果
 int ServerOperation::secKeyRevoke(RequestMsg* reqMsg, char** outData, int& dataLen)
 {
 	RespondMsg rspMsg;
@@ -253,7 +254,8 @@ int ServerOperation::secKeyRevoke(RequestMsg* reqMsg, char** outData, int& dataL
 
 }
 
-// 秘钥查看
+// 秘钥查看	-- 根据客户端ID和服务端ID 查找秘钥信息，回复秘钥ID ---- 待完善
+//循环发送秘钥ID 客户端循环接受消息，最后发送一个空包结尾 seckey==0
 int ServerOperation::secKeyView(RequestMsg* reqMsg, char** outData, int& outLen)
 {
 	int ret = 0;
@@ -317,7 +319,7 @@ int ServerOperation::secKeyView(RequestMsg* reqMsg, char** outData, int& outLen)
 
 		//出队
 		m_occi.m_queue.pop();
-}
+	}
 	/*结束发送一个空包作为标志--seckeyID==0*/
 	cout << "组织结束信息。。。。。。" << endl;
 	rspMsg.seckeyID = 0;
