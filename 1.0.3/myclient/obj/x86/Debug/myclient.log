@@ -1,0 +1,13 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.146.128”
+  正在验证体系结构
+  正在验证体系结构
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Application Type\Linux\1.0\Linux.targets(190,5): warning : 当前项目体系结构“x86”不兼容远程系统体系结构“x64”(“x64”)。请在 Configuration Manager 中将项目体系结构切换为“x64”。如果正在交叉编译，可以忽略此警告。
+  正在启动远程生成
+  正在编译源:
+  正在链接对象
+/usr/bin/ld : error : /home/sa/projects/myclient/obj/x86/Debug/ClientOperation.o: in function `ClientOperation::secKeyAgree()':
+F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(46): error : undefined reference to `EVP_sha256'
+/usr/bin/ld : error : /home/sa/projects/myclient/ClientOperation.cpp:46: undefined reference to `HMAC'
+/usr/bin/ld : error : /home/sa/projects/myclient/ClientOperation.cpp:118: undefined reference to `SHA1'
+collect2 : error : ld returned 1 exit status
