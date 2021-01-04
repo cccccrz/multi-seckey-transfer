@@ -178,7 +178,7 @@ int ServerOperation::secKeyRevoke()
 {}
 
 // 秘钥查看
-int ServerOperation::secKeyView(RequestMsg* reqMsg)
+int ServerOperation::secKeyView(RequestMsg* reqMsg, char** outData, int& outLen)
 {
 	int ret = 0;
 
@@ -188,9 +188,11 @@ int ServerOperation::secKeyView(RequestMsg* reqMsg)
 	char* sendData = NULL;
 	int dataLen = 0;
 	memset(&rspMsg, 0x00, sizeof(RespondMsg));
+	CodecFactory* factory = NULL;
+	Codec* pCodec = NULL;
+
 	//从数据库中查找
-	//reqMsg->clientID
-	//reqMsg->serverID
+	//reqMsg->clientID reqMsg->serverID
 	m_occi.view_SecKeyInfo(reqMsg->clientID, reqMsg->serverID);
 
 	cout << "\033[33m开始查找秘钥信息#########################################\033[0m" << endl;
@@ -221,8 +223,8 @@ int ServerOperation::secKeyView(RequestMsg* reqMsg)
 		strcpy(rspMsg.clientID, " ");
 		strcpy(rspMsg.serverID, " ");
 		/*编码发送*/
-		CodecFactory* factory = new RespondFactory(&rspMsg);
-		Codec* pCodec = factory->createCodec();
+		factory = new RespondFactory(&rspMsg);
+		pCodec = factory->createCodec();
 		pCodec->EncodeMsg(&sendData, dataLen);	//传出参数
 		//发送
 		cout << "发送应答数据......";
@@ -246,76 +248,10 @@ int ServerOperation::secKeyView(RequestMsg* reqMsg)
 	strcpy(rspMsg.r2, " ");
 	strcpy(rspMsg.clientID, " ");
 	strcpy(rspMsg.serverID, " ");
-	/*编码发送*/
-	CodecFactory* factory = new RespondFactory(&rspMsg);
-	Codec* pCodec = factory->createCodec();
-	pCodec->EncodeMsg(&sendData, dataLen);	//传出参数
-	//发送
-	cout << "发送应答数据......";
-	ret = socket->sendMsg(sendData, dataLen);
-	if (ret < 0)
-	{
-		cout << "\033[31merr\033[0m:" << ret << endl;
-	}
-	else
-	{
-		cout << "\033[32mdone！\033[0m" << endl;
-	}
-	//delete socket;
-	return 0;
-}
-
-int ServerOperation::secKeyView(RequestMsg* reqMsg, char** outData, int& dataLen)
-{
-	RespondMsg rspMsg;
-	char* bufTmp = NULL;
-	int bufLen = 0;
-	dataLen = 0;
-	memset(&rspMsg, 0x00, sizeof(RespondMsg));
-	//从数据库中查找
-	//reqMsg->clientID
-	//reqMsg->serverID
-	m_occi.view_SecKeyInfo(reqMsg->clientID, reqMsg->serverID);
-
-	cout << "\033[33m服务端输出#########################################\033[0m" << endl;
-	if (m_occi.m_queue.empty())
-	{
-		rspMsg.rv = 1;//没找到
-		printf("\033[31mclientID[%s]:serverID[%s]\033[0m没有秘钥信息！\n", reqMsg->clientID, reqMsg->serverID);
-	}
-	else
-	{
-		rspMsg.rv = 0;
-	}
-	while (!m_occi.m_queue.empty())
-	{
-		cout << "client:" << m_occi.m_queue.front().clientID << endl;
-		cout << "serverID:" << m_occi.m_queue.front().serverID << endl;
-		cout << "seckey:" << m_occi.m_queue.front().seckey << endl;
-		cout << "seckeyID:" << m_occi.m_queue.front().seckeyID << endl;
-		cout << "status:" << m_occi.m_queue.front().status << endl;
-		cout << "\033[33m#########################################################\033[0m" << endl;
-
-		/*组织应答信息*/
-		rspMsg.seckeyID = m_occi.m_queue.front().seckeyID;
-		strcpy(rspMsg.r2, " ");
-		strcpy(rspMsg.clientID, " ");
-		strcpy(rspMsg.serverID, " ");
-		/*编码发送*/
-		CodecFactory* factory = new RespondFactory(&rspMsg);
-		Codec* pCodec = factory->createCodec();
-		pCodec->EncodeMsg(&bufTmp, bufLen);	//传出参数
-		bufTmp += bufLen;
-		dataLen += bufLen;
-
-		m_occi.m_queue.pop();
-	}
-	*outData = bufTmp;
-
-	/*rspMsg->seckeyID = 0;
-	strcpy(rspMsg->r2, " ");
-	strcpy(rspMsg->clientID, " ");
-	strcpy(rspMsg->serverID, " ");*/
+	/*编码*/
+	factory = new RespondFactory(&rspMsg);
+	pCodec = factory->createCodec();
+	pCodec->EncodeMsg(outData, outLen);	//传出参数
 
 	//delete socket;
 	return 0;
@@ -443,8 +379,7 @@ void* working(void* arg)
 		break;
 	case 4:
 		//秘钥查看
-		op->secKeyView(reqMsg);
-		goto disconnect;
+		op->secKeyView(reqMsg, &sendData, dataLen);
 		break;
 	default:
 		cout << "没有该服务......" << endl;
@@ -464,7 +399,6 @@ void* working(void* arg)
 	}
 
 	//断开连接
-disconnect:
 	socket->disConnect();
 	printf("断开客户端%s的连接......\n", reqMsg->clientID);
 	//释放内存

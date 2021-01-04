@@ -40,7 +40,7 @@ public:
 	int secKeyRevoke();
 	// 秘钥查看
 	int secKeyView(RequestMsg* reqMsg, char** outData, int& dataLen);
-	int secKeyView(RequestMsg* reqMsg);
+
 	// 传入信息无效
 	void errInfo(RequestMsg* reqMsg, char** outData, int& dataLen);
 

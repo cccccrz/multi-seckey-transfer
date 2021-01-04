@@ -15,15 +15,15 @@ F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(174,1): w
 F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(178,2): warning : no return statement in function returning non-void [-Wreturn-type]
 F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(178,2): warning :  {}
 F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(178,2): warning :   ^
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(352,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(352,15): warning :     randBuf[i] = rand() % 26 + 'a';
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(352,15): warning :                ^
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(355,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(355,15): warning :     randBuf[i] = rand() % 26 + 'A';
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(355,15): warning :                ^
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(358,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(358,15): warning :     randBuf[i] = rand() % 10 + '0';
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(358,15): warning :                ^
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(288,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(288,15): warning :     randBuf[i] = rand() % 26 + 'a';
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(288,15): warning :                ^
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(291,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(291,15): warning :     randBuf[i] = rand() % 26 + 'A';
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(291,15): warning :                ^
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(294,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(294,15): warning :     randBuf[i] = rand() % 10 + '0';
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(294,15): warning :                ^
   正在链接对象
 /usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/BaseASN1.o: in function `BaseASN1::BaseASN1()':
 F:\C++code\多端安全协议传输平台\myserver\BaseASN1.cpp(8): error : undefined reference to `ItcastLog::ItcastLog()'
