@@ -1,0 +1,62 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.146.128”
+  正在验证体系结构
+  正在验证体系结构
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Application Type\Linux\1.0\Linux.targets(190,5): warning : 当前项目体系结构“x86”不兼容远程系统体系结构“x64”(“x64”)。请在 Configuration Manager 中将项目体系结构切换为“x64”。如果正在交叉编译，可以忽略此警告。
+  正在启动远程生成
+  正在编译源:
+  OCCIOP.cpp
+  正在链接对象
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/BaseASN1.o: in function `BaseASN1::BaseASN1()':
+F:\C++code\多端安全协议传输平台\myserver\BaseASN1.cpp(8): error : undefined reference to `ItcastLog::ItcastLog()'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/BaseASN1.o: in function `BaseASN1::DER_ItAsn1_Low_GetTagInfo(unsigned char**, unsigned long**, unsigned long**)':
+F:\C++code\多端安全协议传输平台\myserver\BaseASN1.cpp(26): error : undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/BaseASN1.cpp:34: undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/BaseASN1.o: in function `BaseASN1::DER_ItAsn1_Low_Count_LengthOfSize(unsigned long)':
+F:\C++code\多端安全协议传输平台\myserver\BaseASN1.cpp(91): error : undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/BaseASN1.o: in function `BaseASN1::DER_ItAsn1_Low_GetLengthInfo(unsigned char**, unsigned long**, unsigned long**)':
+F:\C++code\多端安全协议传输平台\myserver\BaseASN1.cpp(156): error : undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/BaseASN1.o: in function `BaseASN1::DER_ItAsn1_Low_WriteTagAndLength(ITCAST_ANYBUF_*, unsigned char, ITCAST_ANYBUF_**, unsigned char**)':
+F:\C++code\多端安全协议传输平台\myserver\BaseASN1.cpp(344): error : undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/BaseASN1.o:/home/sa/projects/myserver/BaseASN1.cpp:430: more undefined references to `ItcastLog::Log(char const*, int, int, int, char const*, ...)' follow
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/Codec.o: in function `BaseASN1::~BaseASN1()':
+F:\C++code\多端安全协议传输平台\myserver\BaseASN1.h(43): error : undefined reference to `ItcastLog::~ItcastLog()'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/OCCIOP.o: in function `OCCIOP::connectDB(std::string, std::string, std::string)':
+F:\C++code\多端安全协议传输平台\myserver\OCCIOP.cpp(20): error : undefined reference to `oracle::occi::Environment::createEnvironment(oracle::occi::Environment::Mode, void*, void* (*)(void*, unsigned long), void* (*)(void*, void*, unsigned long), void (*)(void*, void*))'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/OCCIOP.o: in function `OCCIOP::closeDB()':
+F:\C++code\多端安全协议传输平台\myserver\OCCIOP.cpp(200): error : undefined reference to `oracle::occi::Environment::terminateEnvironment(oracle::occi::Environment*)'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/ServerOperation.o: in function `ServerOperation::startwork()':
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(51): error : undefined reference to `pthread_create'
+/usr/bin/ld : error : /home/sa/projects/myserver/ServerOperation.cpp:53: undefined reference to `pthread_detach'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/ServerOperation.o: in function `ServerOperation::secKeyAgree(RequestMsg*, char**, int&)':
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(82): error : undefined reference to `EVP_sha256'
+/usr/bin/ld : error : /home/sa/projects/myserver/ServerOperation.cpp:82: undefined reference to `HMAC'
+/usr/bin/ld : error : /home/sa/projects/myserver/ServerOperation.cpp:115: undefined reference to `SHA1'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpServer.o: in function `TcpServer::TcpServer()':
+F:\C++code\多端安全协议传输平台\myserver\TcpServer.cpp(8): error : undefined reference to `ItcastLog::ItcastLog()'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpServer.o: in function `TcpServer::~TcpServer()':
+F:\C++code\多端安全协议传输平台\myserver\TcpServer.cpp(13): error : undefined reference to `ItcastLog::~ItcastLog()'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpServer.o: in function `TcpServer::setListen(unsigned short)':
+F:\C++code\多端安全协议传输平台\myserver\TcpServer.cpp(26): error : undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/TcpServer.cpp:35: undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/TcpServer.cpp:49: undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/TcpServer.cpp:57: undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpServer.o: in function `TcpServer::acceptConn(int)':
+F:\C++code\多端安全协议传输平台\myserver\TcpServer.cpp(73): error : undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpServer.o:/home/sa/projects/myserver/TcpServer.cpp:77: more undefined references to `ItcastLog::Log(char const*, int, int, int, char const*, ...)' follow
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpSocket.o: in function `TcpSocket::TcpSocket()':
+F:\C++code\多端安全协议传输平台\myserver\TcpSocket.cpp(18): error : undefined reference to `ItcastLog::ItcastLog()'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpSocket.o: in function `TcpSocket::TcpSocket(int)':
+F:\C++code\多端安全协议传输平台\myserver\TcpSocket.cpp(23): error : undefined reference to `ItcastLog::ItcastLog()'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpSocket.o: in function `TcpSocket::~TcpSocket()':
+F:\C++code\多端安全协议传输平台\myserver\TcpSocket.cpp(28): error : undefined reference to `ItcastLog::~ItcastLog()'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpSocket.o: in function `TcpSocket::connectToHost(char*, unsigned short, int)':
+F:\C++code\多端安全协议传输平台\myserver\TcpSocket.cpp(41): error : undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/TcpSocket.cpp:71: undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpSocket.o: in function `TcpSocket::sendMsg(char*, int, int)':
+F:\C++code\多端安全协议传输平台\myserver\TcpSocket.cpp(85): error : undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpSocket.o: in function `TcpSocket::recvMsg(char**, int&, int)':
+F:\C++code\多端安全协议传输平台\myserver\TcpSocket.cpp(151): error : undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/TcpSocket.cpp:156: undefined reference to `ItcastLog::Log(char const*, int, int, int, char const*, ...)'
+/usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpSocket.o:/home/sa/projects/myserver/TcpSocket.cpp:166: more undefined references to `ItcastLog::Log(char const*, int, int, int, char const*, ...)' follow
+collect2 : error : ld returned 1 exit status
