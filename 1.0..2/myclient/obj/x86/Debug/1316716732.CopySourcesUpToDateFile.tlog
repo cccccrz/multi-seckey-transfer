@@ -3,13 +3,13 @@ F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp|637453701
 F:\C++code\多端安全协议传输平台\myclient\Codec.cpp|637450983590586929|~/projects/myclient|
 F:\C++code\多端安全协议传输平台\myclient\CodecFactory.cpp|637450983600902192|~/projects/myclient|
 F:\C++code\多端安全协议传输平台\myclient\ItcastLog.cpp|637450983586733404|~/projects/myclient|
-F:\C++code\多端安全协议传输平台\myclient\main.cpp|637453709621795351|~/projects/myclient|
-F:\C++code\多端安全协议传输平台\myclient\RequestCodec.cpp|637452256577980824|~/projects/myclient|
+F:\C++code\多端安全协议传输平台\myclient\main.cpp|637453722870529419|~/projects/myclient|
+F:\C++code\多端安全协议传输平台\myclient\RequestCodec.cpp|637453722137337340|~/projects/myclient|
 F:\C++code\多端安全协议传输平台\myclient\RequestFactory.cpp|637452256573024583|~/projects/myclient|
-F:\C++code\多端安全协议传输平台\myclient\RespondCodec.cpp|637452256569563668|~/projects/myclient|
+F:\C++code\多端安全协议传输平台\myclient\RespondCodec.cpp|637453722294414250|~/projects/myclient|
 F:\C++code\多端安全协议传输平台\myclient\RespondFactory.cpp|637452256567328932|~/projects/myclient|
 F:\C++code\多端安全协议传输平台\myclient\SecKeyShm.cpp|637452643032929982|~/projects/myclient|
-F:\C++code\多端安全协议传输平台\myclient\SequenceASN1.cpp|637453629327735420|~/projects/myclient|
+F:\C++code\多端安全协议传输平台\myclient\SequenceASN1.cpp|637453721193810080|~/projects/myclient|
 F:\C++code\多端安全协议传输平台\myclient\ShareMemory.cpp|637452660573017849|~/projects/myclient|
 F:\C++code\多端安全协议传输平台\myclient\TcpServer.cpp|637451816517488961|~/projects/myclient|
 F:\C++code\多端安全协议传输平台\myclient\TcpSocket.cpp|637453658573238703|~/projects/myclient|

@@ -15,7 +15,7 @@ public:
 	int writeNextNode(int iValue);
 	int writeNextNode(char* sValue, int len);
 
-	// 读头结点数据 
+	// 读头结点数据
 	int readHeadNode(int& iValue);
 	int readHeadNode(char* sValue);
 	// 读后继结点数据

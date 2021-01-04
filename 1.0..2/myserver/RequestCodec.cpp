@@ -11,7 +11,7 @@ RequestCodec::RequestCodec()
 //请求结构体编码构造 -- 传入请求结构体
 RequestCodec::RequestCodec(RequestMsg* reqMsg)
 {
-#if 0 
+#if 1 
 	memcpy(&m_reqMsg, reqMsg, sizeof(RequestMsg));
 #else 
 	//可随意更换结构体数据赋值方法
@@ -41,10 +41,10 @@ struct RequestMsg
 //编码请求信息：传出字节流；成功返回 0
 int RequestCodec::EncodeMsg(char** outData, int& outLen)
 {
-	writeHeadNode(m_reqMsg.clientID, strlen(m_reqMsg.clientID));
-	writeNextNode(m_reqMsg.authCode, strlen(m_reqMsg.authCode));
-	writeNextNode(m_reqMsg.serverID, strlen(m_reqMsg.serverID));
-	writeNextNode(m_reqMsg.r1, strlen(m_reqMsg.r1));
+	writeHeadNode(m_reqMsg.clientID, strlen(m_reqMsg.clientID) + 1);
+	writeNextNode(m_reqMsg.authCode, strlen(m_reqMsg.authCode) + 1);
+	writeNextNode(m_reqMsg.serverID, strlen(m_reqMsg.serverID) + 1);
+	writeNextNode(m_reqMsg.r1, strlen(m_reqMsg.r1) + 1);
 	writeNextNode(m_reqMsg.cmdType);
 	//序列化
 	packSequence(outData, outLen);

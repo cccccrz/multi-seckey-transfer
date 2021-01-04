@@ -3,13 +3,13 @@ F:\C++code\多端安全协议传输平台\myserver\Codec.cpp|637450983590586929|
 F:\C++code\多端安全协议传输平台\myserver\CodecFactory.cpp|637450983600902192|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\main.cpp|637453712923429788|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\OCCIOP.cpp|637453683863827360|~/projects/myserver|
-F:\C++code\多端安全协议传输平台\myserver\RequestCodec.cpp|637453715210080982|~/projects/myserver|
+F:\C++code\多端安全协议传输平台\myserver\RequestCodec.cpp|637453721700738056|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\RequestFactory.cpp|637452256138961593|~/projects/myserver|
-F:\C++code\多端安全协议传输平台\myserver\RespondCodec.cpp|637453127715561276|~/projects/myserver|
+F:\C++code\多端安全协议传输平台\myserver\RespondCodec.cpp|637453721894637079|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\RespondFactory.cpp|637451998665376156|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\SecKeyShm.cpp|637452643032929982|~/projects/myserver|
-F:\C++code\多端安全协议传输平台\myserver\SequenceASN1.cpp|637453624520594383|~/projects/myserver|
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp|637453714889220020|~/projects/myserver|
+F:\C++code\多端安全协议传输平台\myserver\SequenceASN1.cpp|637453720229450851|~/projects/myserver|
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp|637453722928280211|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\ShareMemory.cpp|637452660418455962|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\TcpServer.cpp|637451816517488961|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\TcpSocket.cpp|637453658276808060|~/projects/myserver|
@@ -22,7 +22,7 @@ F:\C++code\多端安全协议传输平台\myserver\RequestFactory.h|637452256136
 F:\C++code\多端安全协议传输平台\myserver\RespondCodec.h|637453636409551814|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\RespondFactory.h|637450983568087531|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\SecKeyShm.h|637452621028168977|~/projects/myserver|
-F:\C++code\多端安全协议传输平台\myserver\SequenceASN1.h|637450983562165528|~/projects/myserver|
+F:\C++code\多端安全协议传输平台\myserver\SequenceASN1.h|637453720108259682|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\ServerOperation.h|637453645328663896|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\ShareMemory.h|637452598147592454|~/projects/myserver|
 F:\C++code\多端安全协议传输平台\myserver\TcpServer.h|637451817765323755|~/projects/myserver|

@@ -41,9 +41,9 @@ struct RespondMsg
 //应答结构体编码：传出字节流；成功返回 0
 int RespondCodec::EncodeMsg(char** outData, int& outLen)
 {
-	writeHeadNode(m_rspMsg.serverID, strlen(m_rspMsg.serverID));
-	writeNextNode(m_rspMsg.clientID, strlen(m_rspMsg.clientID));
-	writeNextNode(m_rspMsg.r2, strlen(m_rspMsg.r2));
+	writeHeadNode(m_rspMsg.serverID, strlen(m_rspMsg.serverID) + 1);
+	writeNextNode(m_rspMsg.clientID, strlen(m_rspMsg.clientID) + 1);
+	writeNextNode(m_rspMsg.r2, strlen(m_rspMsg.r2) + 1);
 	writeNextNode(m_rspMsg.seckeyID);
 	writeNextNode(m_rspMsg.rv);
 

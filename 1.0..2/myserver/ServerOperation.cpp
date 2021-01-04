@@ -62,7 +62,7 @@ int ServerOperation::secKeyAgree(RequestMsg* reqMsg, char** outData, int& dataLe
 	int ret = 0;
 	RespondMsg rspMsg;
 	memset(&rspMsg, 0x00, sizeof(RespondMsg));
-	reqMsg->r1[sizeof(reqMsg->r1) - 1] = '\0';	//update 2021.1.3 
+	//reqMsg->r1[sizeof(reqMsg->r1) - 1] = '\0';	//update 2021.1.3 
 #if 1
 	//test r1,server粘包问题  + '\0' 不加偶尔粘包？
 	cout << "\033[32m开始秘钥协商......" << endl;
