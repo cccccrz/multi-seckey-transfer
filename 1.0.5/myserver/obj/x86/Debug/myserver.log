@@ -5,25 +5,29 @@
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Application Type\Linux\1.0\Linux.targets(190,5): warning : 当前项目体系结构“x86”不兼容远程系统体系结构“x64”(“x64”)。请在 Configuration Manager 中将项目体系结构切换为“x64”。如果正在交叉编译，可以忽略此警告。
   正在启动远程生成
   正在编译源:
+  OCCIOP.cpp
+F:\C++code\多端安全协议传输平台\myserver\OCCIOP.cpp(246,10): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+F:\C++code\多端安全协议传输平台\myserver\OCCIOP.cpp(246,10): warning :   dataLen = strlen(buf);
+F:\C++code\多端安全协议传输平台\myserver\OCCIOP.cpp(246,10): warning :           ^
   ServerOperation.cpp
 F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(82,69): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
 F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(82,69): warning :    (unsigned char*)reqMsg->r1, strlen(reqMsg->r1), md_HMAC, &len_HMAC);
 F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(82,69): warning :                                                                      ^
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(196,48): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(196,48): warning :    (unsigned char*)buftmp, seckeyLen, md, &mdlen);
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(196,48): warning :                                                 ^
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(254,1): warning : no return statement in function returning non-void [-Wreturn-type]
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(254,1): warning :  }
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(254,1): warning :  ^
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(364,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(364,15): warning :     randBuf[i] = rand() % 26 + 'a';
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(364,15): warning :                ^
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(367,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(367,15): warning :     randBuf[i] = rand() % 26 + 'A';
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(367,15): warning :                ^
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(370,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(370,15): warning :     randBuf[i] = rand() % 10 + '0';
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(370,15): warning :                ^
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(197,48): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(197,48): warning :    (unsigned char*)buftmp, seckeyLen, md, &mdlen);
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(197,48): warning :                                                 ^
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(255,1): warning : no return statement in function returning non-void [-Wreturn-type]
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(255,1): warning :  }
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(255,1): warning :  ^
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(366,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(366,15): warning :     randBuf[i] = rand() % 26 + 'a';
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(366,15): warning :                ^
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(369,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(369,15): warning :     randBuf[i] = rand() % 26 + 'A';
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(369,15): warning :                ^
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(372,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(372,15): warning :     randBuf[i] = rand() % 10 + '0';
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(372,15): warning :                ^
   正在链接对象
 /usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/BaseASN1.o: in function `BaseASN1::BaseASN1()':
 F:\C++code\多端安全协议传输平台\myserver\BaseASN1.cpp(8): error : undefined reference to `ItcastLog::ItcastLog()'
@@ -42,7 +46,7 @@ F:\C++code\多端安全协议传输平台\myserver\BaseASN1.h(43): error : undef
 /usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/OCCIOP.o: in function `OCCIOP::connectDB(std::string, std::string, std::string)':
 F:\C++code\多端安全协议传输平台\myserver\OCCIOP.cpp(20): error : undefined reference to `oracle::occi::Environment::createEnvironment(oracle::occi::Environment::Mode, void*, void* (*)(void*, unsigned long), void* (*)(void*, void*, unsigned long), void (*)(void*, void*))'
 /usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/OCCIOP.o: in function `OCCIOP::closeDB()':
-F:\C++code\多端安全协议传输平台\myserver\OCCIOP.cpp(249): error : undefined reference to `oracle::occi::Environment::terminateEnvironment(oracle::occi::Environment*)'
+F:\C++code\多端安全协议传输平台\myserver\OCCIOP.cpp(257): error : undefined reference to `oracle::occi::Environment::terminateEnvironment(oracle::occi::Environment*)'
 /usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/ServerOperation.o: in function `ServerOperation::startwork()':
 F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(51): error : undefined reference to `pthread_create'
 /usr/bin/ld : error : /home/sa/projects/myserver/ServerOperation.cpp:53: undefined reference to `pthread_detach'
@@ -51,8 +55,8 @@ F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(82): erro
 /usr/bin/ld : error : /home/sa/projects/myserver/ServerOperation.cpp:82: undefined reference to `HMAC'
 /usr/bin/ld : error : /home/sa/projects/myserver/ServerOperation.cpp:115: undefined reference to `SHA1'
 /usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/ServerOperation.o: in function `ServerOperation::secKeyCheck(RequestMsg*, char**, int&)':
-F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(196): error : undefined reference to `EVP_sha256'
-/usr/bin/ld : error : /home/sa/projects/myserver/ServerOperation.cpp:196: undefined reference to `HMAC'
+F:\C++code\多端安全协议传输平台\myserver\ServerOperation.cpp(197): error : undefined reference to `EVP_sha256'
+/usr/bin/ld : error : /home/sa/projects/myserver/ServerOperation.cpp:197: undefined reference to `HMAC'
 /usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpServer.o: in function `TcpServer::TcpServer()':
 F:\C++code\多端安全协议传输平台\myserver\TcpServer.cpp(8): error : undefined reference to `ItcastLog::ItcastLog()'
 /usr/bin/ld : error : /home/sa/projects/myserver/obj/x86/Debug/TcpServer.o: in function `TcpServer::~TcpServer()':

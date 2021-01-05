@@ -139,6 +139,12 @@ int OCCIOP::writeSecKey(NodeSHMInfo* pNode)
 //根据clientID 和 serverID 查找秘钥信息 --查找SECMNG.SECKEYINFO表
 int OCCIOP::view_SecKeyInfo(char* clientID, char* serverID)
 {
+	//清空queue
+	while (!m_queue.empty())
+	{
+		m_queue.pop();
+	}
+
 	string sql = "select * from SECMNG.SECKEYINFO where clientid=:1 and serverid=:2";
 	Statement* stmt = m_conn->createStatement(sql);
 	stmt->setString(1, clientID);
@@ -186,11 +192,12 @@ int OCCIOP::delete_SecKeyInfo(int seckeyID)
 	int ret = stmt->executeUpdate();
 	m_conn->terminateStatement(stmt);
 
-	//清空queue
+	//清空queue vector
 	while (!m_queue.empty())
 	{
 		m_queue.pop();
 	}
+	m_seckeyID.clear();
 
 	return ret;
 }
@@ -208,16 +215,19 @@ int OCCIOP::delete_SecKeyInfo(char* clientID, char* serverID)
 	int ret = stmt->executeUpdate();
 	m_conn->terminateStatement(stmt);
 
-	//清空queue
+	//清空queue vector
 	while (!m_queue.empty())
 	{
 		m_queue.pop();
 	}
+	m_seckeyID.clear();
 
 	return ret;
 }
 
-//根据seckeyID 获得秘钥
+//根据seckeyID 获得秘钥  
+//@seckey:传出秘钥
+//@dataLen:传出数据长度
 int OCCIOP::get_secKey(int seckeyID, char** seckey, int& dataLen)
 {
 	int ret = 0;
