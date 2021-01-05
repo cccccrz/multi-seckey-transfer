@@ -14,18 +14,15 @@ ServerOperation::ServerOperation(ServerInfo* info)
 	memcpy(&m_info, info, sizeof(ServerInfo));
 	m_shm = new SecKeyShm(info->shmKey, info->maxNode);
 
-	bool ret = m_occi.connectDB("SECMNG", "SECMNG", "192.168.146.1:1521/orcl");
-	if (!ret)
-	{
-		cout << "oracle数据库连接失败......" << endl;
-	}
+	m_occi.connectDB("SECMNG", "SECMNG", "192.168.146.1:1521/orcl");
+
 }
 
 ServerOperation::~ServerOperation()
 {
 	//释放资源
 	//m_shm->delShm();
-	//delete m_shm;
+	delete m_shm;
 	m_occi.closeDB();
 }
 
@@ -162,7 +159,7 @@ int ServerOperation::secKeyAgree(RequestMsg* reqMsg, char** outData, int& dataLe
 	}
 
 	//释放资源
-	//delete factory;
+	delete factory;
 
 	return 0;
 }
@@ -222,6 +219,7 @@ int ServerOperation::secKeyCheck(RequestMsg* reqMsg, char** outData, int& dataLe
 	Codec* pCodec = factory->createCodec();
 	pCodec->EncodeMsg(outData, dataLen);
 
+	delete factory;
 	return 0;
 }
 
@@ -252,6 +250,7 @@ int ServerOperation::secKeyRevoke(RequestMsg* reqMsg, char** outData, int& dataL
 	Codec* pCodec = factory->createCodec();
 	pCodec->EncodeMsg(outData, dataLen);
 
+	delete factory;
 }
 
 // 秘钥查看	-- 根据客户端ID和服务端ID 查找秘钥信息，回复秘钥ID ---- 待完善
@@ -319,7 +318,8 @@ int ServerOperation::secKeyView(RequestMsg* reqMsg, char** outData, int& outLen)
 
 		//出队
 		m_occi.m_queue.pop();
-	}
+		delete factory;
+}
 	/*结束发送一个空包作为标志--seckeyID==0*/
 	cout << "组织结束信息。。。。。。" << endl;
 	rspMsg.seckeyID = 0;
@@ -331,6 +331,7 @@ int ServerOperation::secKeyView(RequestMsg* reqMsg, char** outData, int& outLen)
 	pCodec = factory->createCodec();
 	pCodec->EncodeMsg(outData, outLen);	//传出参数
 
+	delete factory;
 	//delete socket;
 	return 0;
 }
@@ -349,6 +350,8 @@ void ServerOperation::errInfo(RequestMsg* reqMsg, char** outData, int& dataLen)
 	CodecFactory* factory = new RespondFactory(&rspMsg);
 	Codec* pCodec = factory->createCodec();
 	pCodec->EncodeMsg(outData, dataLen);
+
+	delete factory;
 }
 
 void ServerOperation::getRandString(int len, char* randBuf)

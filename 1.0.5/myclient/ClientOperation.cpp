@@ -22,7 +22,7 @@ ClientOperation::ClientOperation(ClientInfo* info)
 
 ClientOperation::~ClientOperation()
 {
-
+	delete m_shm;
 }
 
 //密钥协商
@@ -46,8 +46,8 @@ int ClientOperation::secKeyAgree()
 	sprintf(key, "@%s+%s@", m_info.serverID, m_info.clientID);
 	HMAC(EVP_sha256(), key, strlen(key), \
 		(unsigned char*)reqMsg.r1, strlen(reqMsg.r1), md, &mdlen);
-	cout << "md:" << md << endl;
-	cout << "mdlen:" << mdlen << endl;
+	//cout << "md:" << md << endl;
+	//cout << "mdlen:" << mdlen << endl;
 	for (int i = 0; i < SHA256_DIGEST_LENGTH; i++)
 	{
 		sprintf(&reqMsg.authCode[2 * i], "%02x", md[i]);
@@ -63,7 +63,7 @@ int ClientOperation::secKeyAgree()
 #endif
 	//将要发送的数据进行编码
 	char* outData = NULL;
-	int dataLen;
+	int dataLen = 0;
 	CodecFactory* factory = new RequestFactory(&reqMsg);
 	Codec* pCodec = factory->createCodec();
 	pCodec->EncodeMsg(&outData, dataLen);
@@ -92,7 +92,7 @@ int ClientOperation::secKeyAgree()
 	cout << "发送成功！等待服务端应答......" << endl;
 
 	//等待接收服务端应答
-	char* inData;
+	char* inData = NULL;
 	ret = m_socket.recvMsg(&inData, dataLen);
 	if (ret != 0)
 	{
@@ -187,16 +187,19 @@ int ClientOperation::secKeyCheck()
 	//发送 秘钥ID和秘钥哈希值
 	//将要发送的数据进行编码
 	char* outData = NULL;
-	int dataLen;
+	int dataLen = 0;
 	CodecFactory* factory = new RequestFactory(&reqMsg);
 	Codec* pCodec = factory->createCodec();
 	pCodec->EncodeMsg(&outData, dataLen);
 
+	delete factory;
 	//连接服务端
 	ret = m_socket.connectToHost(m_info.serverIP, m_info.serverPort);
 	if (ret != 0)
 	{
 		cout << "连接失败！" << endl;
+		m_socket.disConnect();
+		delete factory;
 		return ret;
 	}
 	cout << "建立连接！ 开始发送请求......" << endl;
@@ -205,16 +208,20 @@ int ClientOperation::secKeyCheck()
 	if (ret < 0)
 	{
 		cout << "发送失败！" << endl;
+		m_socket.disConnect();
+		delete factory;
 		return ret;
 	}
 	cout << "发送成功！等待服务端应答......" << endl;
 
 	//等待接收服务端应答
-	char* inData;
+	char* inData = NULL;
 	ret = m_socket.recvMsg(&inData, dataLen);
 	if (ret != 0)
 	{
 		cout << "接收信息失败！" << endl;
+		m_socket.disConnect();
+		delete factory;
 		return ret;
 	}
 	cout << "信息接收成功！开始解码......" << endl;
@@ -255,11 +262,11 @@ int ClientOperation::secKeyRevoke()
 
 	//将要发送的数据进行编码
 	char* outData = NULL;
-	int dataLen;
+	int dataLen = 0;
 	CodecFactory* factory = new RequestFactory(&reqMsg);
 	Codec* pCodec = factory->createCodec();
 	pCodec->EncodeMsg(&outData, dataLen);
-	//delete factory;
+	delete factory;
 	//delete pCodec;
 
 	//连接服务端
@@ -333,11 +340,11 @@ int ClientOperation::secKeyView()
 
 	//将要发送的数据进行编码
 	char* outData = NULL;
-	int dataLen;
+	int dataLen = 0;
 	CodecFactory* factory = new RequestFactory(&reqMsg);
 	Codec* pCodec = factory->createCodec();
 	pCodec->EncodeMsg(&outData, dataLen);
-	//delete factory;
+	delete factory;
 	//delete pCodec;
 
 	//连接服务端
@@ -345,6 +352,8 @@ int ClientOperation::secKeyView()
 	if (ret != 0)
 	{
 		cout << "连接失败！" << endl;
+		m_socket.disConnect();
+		delete factory;
 		return ret;
 	}
 	cout << "建立连接！ 开始发送请求......" << endl;
@@ -353,6 +362,8 @@ int ClientOperation::secKeyView()
 	if (ret < 0)
 	{
 		cout << "发送失败！" << endl;
+		m_socket.disConnect();
+		delete factory;
 		return ret;
 	}
 	cout << "发送成功！等待服务端应答......" << endl;
@@ -365,6 +376,7 @@ int ClientOperation::secKeyView()
 		if (ret != 0)
 		{
 			cout << "接收信息失败！" << endl;
+			m_socket.disConnect();
 			break;
 		}
 		cout << "信息接收成功！开始解码......" << endl;
@@ -390,12 +402,14 @@ int ClientOperation::secKeyView()
 		//打印
 		cout << "seckeyID:\033[32m" << rspMsg->seckeyID << "\033[0m\n";
 		cout << "---------------------------------------------------------" << endl;
+		//释放资源
+		delete factory;
 	}
 
 
 	//关闭网络连接
 	m_socket.disConnect();
-	delete factory;
+	//delete factory;
 
 	return 0;
 }

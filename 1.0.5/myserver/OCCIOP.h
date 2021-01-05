@@ -47,8 +47,8 @@ private:
 
 private:
 	//环境
-	Environment* m_env;
+	Environment* m_env = NULL;
 	//用于连接数据库
-	Connection* m_conn;
+	Connection* m_conn = NULL;
 
 };

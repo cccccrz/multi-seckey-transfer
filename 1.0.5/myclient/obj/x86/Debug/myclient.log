@@ -5,22 +5,6 @@
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Application Type\Linux\1.0\Linux.targets(190,5): warning : 当前项目体系结构“x86”不兼容远程系统体系结构“x64”(“x64”)。请在 Configuration Manager 中将项目体系结构切换为“x64”。如果正在交叉编译，可以忽略此警告。
   正在启动远程生成
   正在编译源:
-  ClientOperation.cpp
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(48,59): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(48,59): warning :    (unsigned char*)reqMsg.r1, strlen(reqMsg.r1), md, &mdlen);
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(48,59): warning :                                                            ^
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(180,63): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(180,63): warning :    (unsigned char*)node.seckey, strlen(node.seckey), md, &mdlen);
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(180,63): warning :                                                                ^
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(417,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(417,15): warning :     randBuf[i] = rand() % 26 + 'a';
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(417,15): warning :                ^
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(420,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(420,15): warning :     randBuf[i] = rand() % 26 + 'A';
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(420,15): warning :                ^
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(423,15): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(423,15): warning :     randBuf[i] = rand() % 10 + '0';
-F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(423,15): warning :                ^
   正在链接对象
 /usr/bin/ld : error : /home/sa/projects/myclient/obj/x86/Debug/ClientOperation.o: in function `ClientOperation::secKeyAgree()':
 F:\C++code\多端安全协议传输平台\myclient\ClientOperation.cpp(48): error : undefined reference to `EVP_sha256'
