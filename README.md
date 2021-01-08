@@ -2,7 +2,7 @@
 
 ## 架构图
 
-![架构](./安全传输平台架构.png)
+![架构](http://m.qpic.cn/psc?/V549OdAP2ZIE9x23Oj8I0AKNCW2h701v/TmEUgtj9EK6.7V8ajmQrEF8gVTqk9RM7XREfCdTOTdFpb92uG5m50ZGRXvyCF*rdSKeAynRg2TUfxL*9vz*dHErvo5CRbxsZkItoAuwh4xg!/b&bo=0gJlAgAAAAADF4U!&rf=viewer_4)
 
 ## 流程：
 
